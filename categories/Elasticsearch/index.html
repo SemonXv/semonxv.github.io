@@ -6,12 +6,12 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://semonxv.github.io">
-  <title>一路尘风</title>
+  <title>Category: Elasticsearch | 一路尘风</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="技术就像呼吸一样自然。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="一路尘风">
-<meta property="og:url" content="http://semonxv.github.io/index.html">
+<meta property="og:url" content="http://semonxv.github.io/categories/Elasticsearch/index.html">
 <meta property="og:site_name" content="一路尘风">
 <meta property="og:description" content="技术就像呼吸一样自然。">
 <meta name="twitter:card" content="summary">
@@ -158,70 +158,34 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Elasticsearch 5.4 安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
     
-      <header class="article-header">
-        
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/05/27/Elasticsearch 5.4 安装/" class="archive-article-date">
+  	<time datetime="2017-05-27T11:31:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-27</time>
+</a>
+        </div>
+    	 
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/27/Elasticsearch 5.4 安装/">Elasticsearch 5.4 安装</a>
+      <a class="archive-article-title" href="/2017/05/27/Elasticsearch 5.4 安装/">Elasticsearch 5.4 安装</a>
     </h1>
   
 
-        
-        <a href="/2017/05/27/Elasticsearch 5.4 安装/" class="archive-article-date">
-  	<time datetime="2017-05-27T11:31:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <a id="more"></a>
-<h1 id="Elasticsearch-5-4-&#x5B89;&#x88C5;"><a href="#Elasticsearch-5-4-&#x5B89;&#x88C5;" class="headerlink" title="Elasticsearch 5.4 &#x5B89;&#x88C5;"></a>Elasticsearch 5.4 &#x5B89;&#x88C5;</h1><h3 id="&#x5B89;&#x88C5;"><a href="#&#x5B89;&#x88C5;" class="headerlink" title="&#x5B89;&#x88C5;"></a>&#x5B89;&#x88C5;</h3><pre><code>wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.4.0.zip
-unzip elasticsearch-5.4.0.zip
-cd elasticsearch-5.4.0
-</code></pre><h3 id="&#x68C0;&#x67E5;&#x6216;&#x6DFB;&#x52A0;-elasticsearch-&#x7528;&#x6237;"><a href="#&#x68C0;&#x67E5;&#x6216;&#x6DFB;&#x52A0;-elasticsearch-&#x7528;&#x6237;" class="headerlink" title="&#x68C0;&#x67E5;&#x6216;&#x6DFB;&#x52A0; elasticsearch &#x7528;&#x6237;"></a>&#x68C0;&#x67E5;&#x6216;&#x6DFB;&#x52A0; elasticsearch &#x7528;&#x6237;</h3><blockquote>
-<p>groupadd elasticsearch<br>useradd -s /sbin/nologin -M -g elasticsearch elasticsearch</p>
-</blockquote>
-<h3 id="&#x7CFB;&#x7EDF;&#x53C2;&#x6570;&#x4FEE;&#x6539;"><a href="#&#x7CFB;&#x7EDF;&#x53C2;&#x6570;&#x4FEE;&#x6539;" class="headerlink" title="&#x7CFB;&#x7EDF;&#x53C2;&#x6570;&#x4FEE;&#x6539;"></a>&#x7CFB;&#x7EDF;&#x53C2;&#x6570;&#x4FEE;&#x6539;</h3><blockquote>
-<p>vi /etc/security/limits.conf   </p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">* soft nofile 65536</div><div class="line">* hard nofile 131072</div><div class="line">* soft nproc 2048</div><div class="line">* hard nproc 4096</div></pre></td></tr></table></figure>
-<blockquote>
-<p>vi /etc/security/limits.d/90-nproc.conf </p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">* soft nproc 1024</div><div class="line">#&#x4FEE;&#x6539;&#x4E3A;</div><div class="line">* soft nproc 2048</div></pre></td></tr></table></figure>
-<blockquote>
-<p>vi /etc/sysctl.conf<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&#x6DFB;&#x52A0;&#x4E0B;&#x9762;&#x914D;&#x7F6E;&#xFF1A;</div><div class="line">vm.max_map_count=655360</div></pre></td></tr></table></figure></p>
-</blockquote>
-<h5 id="&#x5E76;&#x6267;&#x884C;&#x547D;&#x4EE4;&#xFF1A;"><a href="#&#x5E76;&#x6267;&#x884C;&#x547D;&#x4EE4;&#xFF1A;" class="headerlink" title="&#x5E76;&#x6267;&#x884C;&#x547D;&#x4EE4;&#xFF1A;"></a>&#x5E76;&#x6267;&#x884C;&#x547D;&#x4EE4;&#xFF1A;</h5><blockquote>
-<p>sysctl -p</p>
-</blockquote>
-<h3 id="&#x521B;&#x5EFA;&#x6570;&#x636E;&#x76EE;&#x5F55;&#x548C;&#x65E5;&#x5FD7;&#x76EE;&#x5F55;"><a href="#&#x521B;&#x5EFA;&#x6570;&#x636E;&#x76EE;&#x5F55;&#x548C;&#x65E5;&#x5FD7;&#x76EE;&#x5F55;" class="headerlink" title="&#x521B;&#x5EFA;&#x6570;&#x636E;&#x76EE;&#x5F55;&#x548C;&#x65E5;&#x5FD7;&#x76EE;&#x5F55;"></a>&#x521B;&#x5EFA;&#x6570;&#x636E;&#x76EE;&#x5F55;&#x548C;&#x65E5;&#x5FD7;&#x76EE;&#x5F55;</h3><blockquote>
-<p>mkdir /data/elasticsearch<br>mkdir /var/log/server/elasticsearch</p>
-</blockquote>
-<h3 id="&#x914D;&#x7F6E;"><a href="#&#x914D;&#x7F6E;" class="headerlink" title="&#x914D;&#x7F6E;"></a>&#x914D;&#x7F6E;</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">cluster.name: es-test</div><div class="line">node.name: node-01</div><div class="line">path.data: /data/elasticsearch</div><div class="line">path.logs: /var/log/server/elasticsearch</div><div class="line">bootstrap.memory_lock: false</div><div class="line">bootstrap.system_call_filter: false</div><div class="line">network.host: 0.0.0.0</div><div class="line">http.port: 9200</div><div class="line">discovery.zen.ping.unicast.hosts: [&quot;192.168.1.112&quot;]</div><div class="line"></div><div class="line">#action.auto_create_index: .security,.monitoring*,.watches,.triggered_watches,.watcher-history*</div></pre></td></tr></table></figure>
-<h3 id="&#x5B89;&#x88C5;-x-pack-&#x63D2;&#x4EF6;"><a href="#&#x5B89;&#x88C5;-x-pack-&#x63D2;&#x4EF6;" class="headerlink" title="&#x5B89;&#x88C5; x-pack &#x63D2;&#x4EF6;"></a>&#x5B89;&#x88C5; x-pack &#x63D2;&#x4EF6;</h3><blockquote>
-<p>./bin/elasticsearch-plugin install x-pack</p>
-</blockquote>
-<h3 id="&#x8FD0;&#x884C;"><a href="#&#x8FD0;&#x884C;" class="headerlink" title="&#x8FD0;&#x884C;"></a>&#x8FD0;&#x884C;</h3><blockquote>
-<p>su - elasticsearch -c &#x201C;/usr/local/server/elasticsearch/bin/elasticsearch&#x201D;</p>
-</blockquote>
-<h3 id="&#x542F;&#x52A8;&#x811A;&#x672C;"><a href="#&#x542F;&#x52A8;&#x811A;&#x672C;" class="headerlink" title="&#x542F;&#x52A8;&#x811A;&#x672C;"></a>&#x542F;&#x52A8;&#x811A;&#x672C;</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line">su - elasticsearch -c &quot;/usr/local/server/elasticsearch/bin/elasticsearch&quot;</div></pre></td></tr></table></figure>
-<h3 id="&#x8BBF;&#x95EE;"><a href="#&#x8BBF;&#x95EE;" class="headerlink" title="&#x8BBF;&#x95EE;"></a>&#x8BBF;&#x95EE;</h3><blockquote>
-<p><a href="http://localhost:9200/" target="_blank" rel="external">http://localhost:9200/</a></p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">{</div><div class="line">  &quot;name&quot; : &quot;node-1&quot;,</div><div class="line">  &quot;cluster_name&quot; : &quot;es-test&quot;,</div><div class="line">  &quot;cluster_uuid&quot; : &quot;IPP0ypxdSquGMQXHecUD-g&quot;,</div><div class="line">  &quot;version&quot; : {</div><div class="line">    &quot;number&quot; : &quot;5.4.0&quot;,</div><div class="line">    &quot;build_hash&quot; : &quot;780f8c4&quot;,</div><div class="line">    &quot;build_date&quot; : &quot;2017-04-28T17:43:27.229Z&quot;,</div><div class="line">    &quot;build_snapshot&quot; : false,</div><div class="line">    &quot;lucene_version&quot; : &quot;6.5.0&quot;</div><div class="line">  },</div><div class="line">  &quot;tagline&quot; : &quot;You Know, for Search&quot;</div><div class="line">}</div></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -233,7 +197,7 @@ cd elasticsearch-5.4.0
 		</ul>
 	</div>
 
-      
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -246,145 +210,17 @@ cd elasticsearch-5.4.0
 	</div>
 
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/05/27/Elasticsearch 5.4 安装/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-
-
-
-
   
-    <article id="post-centos 6.5 部署gitlab中文版文档" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
+    </div></section>
+  
+
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/25/centos 6.5 部署gitlab中文版文档/">centos 6.5 部署gilab中文版文档</a>
-    </h1>
-  
-
-        
-        <a href="/2016/07/25/centos 6.5 部署gitlab中文版文档/" class="archive-article-date">
-  	<time datetime="2016-07-25T14:41:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>&#x6587;&#x7AE0;&#x6765;&#x6E90;&#xFF1A;</strong> <a href="http://www.01happy.com/centos-6-5-install-gitlab/">http://www.01happy.com/centos-6-5-install-gitlab/</a> </p>
-<p>GitLab&#xFF0C;&#x662F;&#x4E00;&#x4E2A;&#x4F7F;&#x7528; Ruby on Rails &#x5F00;&#x53D1;&#x7684;&#x5F00;&#x6E90;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF0C;&#x4E0E;Github&#x7C7B;&#x4F3C;&#xFF0C;&#x80FD;&#x591F;&#x6D4F;&#x89C8;&#x6E90;&#x4EE3;&#x7801;&#xFF0C;&#x7BA1;&#x7406;&#x7F3A;&#x9677;&#x548C;&#x6CE8;&#x91CA;&#xFF0C;&#x975E;&#x5E38;&#x9002;&#x5408;&#x5728;&#x56E2;&#x961F;&#x5185;&#x90E8;&#x4F7F;&#x7528;&#x3002;</p>
-<p>&#x5B98;&#x65B9;&#x53EA;&#x63D0;&#x4F9B;&#x4E86;Debian/Ubuntu&#x7CFB;&#x7EDF;&#x4E0B;&#x7684;&#x5B89;&#x88C5;&#x8BF4;&#x660E;&#x6587;&#x6863;&#xFF0C;&#x5982;&#x679C;&#x9700;&#x8981;&#x5728;centos&#x4E0B;&#x5B89;&#x88C5;&#xFF0C;<br>&#x53EF;&#x4EE5;&#x53C2;&#x8003;&#x8FD9;&#x7BC7;&#xFF1A;<a href="https://github.com/gitlabhq/gitlab-recipes/tree/master/install/centos&#xFF0C;">https://github.com/gitlabhq/gitlab-recipes/tree/master/install/centos&#xFF0C;</a><br>&#x7B14;&#x8005;&#x4F9D;&#x7167;&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x7684;&#x8BF4;&#x660E;&#xFF0C;&#x6210;&#x529F;&#x7684;&#x5728;centos&#x7CFB;&#x7EDF;&#x4E0A;&#x5B89;&#x88C5;&#x4E86;gitlab&#xFF0C;&#x5206;&#x4EAB;&#x4E00;&#x4E0B;&#x81EA;&#x5DF1;&#x7684;&#x5B89;&#x88C5;&#x8FC7;&#x7A0B;&#x548C;&#x78B0;&#x5230;&#x7684;&#x95EE;&#x9898;&#x3002;</p>
-        
-          <a class="article-more-a" href="/2016/07/25/centos 6.5 部署gitlab中文版文档/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">gitlab</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/tools/" class="article-tag-list-link color1">tools</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/07/25/centos 6.5 部署gitlab中文版文档/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-index" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/25/index/">首页</a>
-    </h1>
-  
-
-        
-        <a href="/2016/07/25/index/" class="archive-article-date">
-  	<time datetime="2016-07-25T05:42:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="SemonXv-&#x535A;&#x5BA2;"><a href="#SemonXv-&#x535A;&#x5BA2;" class="headerlink" title="SemonXv &#x535A;&#x5BA2;"></a>SemonXv &#x535A;&#x5BA2;</h1>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/07/25/index/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-  
 
 
           </div>
@@ -406,11 +242,11 @@ cd elasticsearch-5.4.0
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
+		isHome: false,
 		isPost: false,
 		isArchive: false,
 		isTag: false,
-		isCategory: false,
+		isCategory: true,
 		open_in_new: false,
 		root: "/",
 		innerArchive: true,
